@@ -5,6 +5,7 @@ var bodyParser = require('body-parser')
 
 var { Recommend } = require("../model/recommend")
 const { Song } = require("../model/song")
+const { Search } = require("../model/search") 
 
 router.get('/getBannerList', async (req, res, next) => {//获取banner的数据
     const result = await Recommend.getBannerList()
@@ -16,6 +17,11 @@ router.get('/getDiscList', async (req, res) => {//获取热门歌单推荐的数
     res.send(result)
 })
 
+router.get('/getSongList', async (req, res) => {//获取热门歌单推荐的数据的歌曲列表
+    const result = await Recommend.getSongList(req.query)
+    res.send(result)
+})
+
 
 
 router.get('/getBannerListtest', async (req, res, next) => {
@@ -23,11 +29,21 @@ router.get('/getBannerListtest', async (req, res, next) => {
     res.send(result)
 })
 
-router.post('/getPlayUrl', bodyParser.json() , async (req, res, next) => {
+router.post('/getPlayUrl', bodyParser.json(), async (req, res, next) => {
     const result = await Song.getPlayUrl(req.body)
     res.send(result)
 })
 
+router.get('/getLyric', async (req, res, next) => {
+    const result = await Song.getLyric(req.query)
+    res.send(result)
+})  
+
+
+router.get('/search', async (req, res, next) => {
+    const result = await Search.getSearchList(req.query)
+    res.send(result)
+})
 
 
 

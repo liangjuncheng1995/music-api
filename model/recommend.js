@@ -12,12 +12,12 @@ class Recommend {
                 slider: []
             }
         }
-        
-        if(result.data.code === 0) {
+
+        if (result.data.code === 0) {
             var data = result.data.focus.data.shelf.v_niche[0].v_card
-            data.forEach((element,index) => {
+            data.forEach((element, index) => {
                 var idurl = element.subid == "" ? element.id : element.subid
-                if(idurl.indexOf('html') > 0) {
+                if (idurl.indexOf('html') > 0) {
                     return
                 }
                 banner.data.slider.push({
@@ -38,18 +38,37 @@ class Recommend {
             "referer": config.music.getDiscListParameter.referer,
             "host": config.music.getDiscListParameter.host
         }
-        const result = await axios.get(url,{params,headers})
+        const result = await axios.get(url, { params, headers })
         return result.data
     }
+
+    static async getSongList(params) {
+        const url = util.format(config.music.getSongList.url)
+        const headers = {
+            "referer": config.music.getSongList.referer,
+            "host": config.music.getSongList.host
+        }
+        const result = await axios.get(url, { params, headers })
+        var ret = result.data
+        if (typeof ret === "string") {
+            var reg = /^\w+\(({.+})\)$/
+            var matches = ret.match(reg)
+            if(matches) {
+                ret = JSON.parse(matches[1])
+            }
+        }
+        return ret
+    }
+
     //测试接口
     static async getBannerListtest() {
         const url = util.format(config.music.bannerDataUrl)
         const result = await axios.get(url)
-        
-        
-        if(result.data.code === 0) {
+
+
+        if (result.data.code === 0) {
             var data = result.data.focus.data.shelf.v_niche[0].v_card
-          
+
         } else {
             return 400
         }
