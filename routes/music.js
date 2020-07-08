@@ -29,18 +29,18 @@ router.get('/getBannerListtest', async (req, res, next) => {
     res.send(result)
 })
 
-router.post('/getPlayUrl', bodyParser.json(), async (req, res, next) => {
+router.post('/getPlayUrl', bodyParser.json(), async (req, res, next) => { //获取歌曲播放的url
     const result = await Song.getPlayUrl(req.body)
     res.send(result)
 })
 
-router.get('/getLyric', async (req, res, next) => {
+router.get('/getLyric', async (req, res, next) => { //获取歌词
     const result = await Song.getLyric(req.query)
     res.send(result)
 })  
 
 
-router.get('/search', async (req, res, next) => {
+router.get('/search', async (req, res, next) => { //搜索接口
     const result = await Search.getSearchList(req.query)
     res.send(result)
 })
