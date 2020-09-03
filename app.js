@@ -41,7 +41,8 @@ app.use(function(err, req, res, next) {
 });
 
 var debug = require('debug')('my-application'); // debug模块
-app.set('port', process.env.PORT || 6000); // 设定监听端口
+// app.set('port', process.env.PORT || 6000); // 设定监听端口 线上
+app.set('port', process.env.PORT || 6001); //本地
  
 //启动监听
 var server = app.listen(app.get('port'), function() {
