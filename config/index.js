@@ -29,5 +29,12 @@ module.exports = {
             host: 'c.y.qq.com',
             origin: 'https://y.qq.com',
         }
+    },
+    database: {
+        dbName: 'music',
+        host: 'localhost',
+        password: '855420',
+        port: 3306,
+        user: 'root',
     }
 }

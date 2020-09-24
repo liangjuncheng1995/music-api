@@ -5,7 +5,8 @@ var bodyParser = require('body-parser')
 
 var { Recommend } = require("../model/recommend")
 const { Song } = require("../model/song")
-const { Search } = require("../model/search") 
+const { Search } = require("../model/search"); 
+const { Turn } = require('../model/turn');
 
 router.get('/getBannerList', async (req, res, next) => {//获取banner的数据
     const result = await Recommend.getBannerList()
@@ -46,7 +47,17 @@ router.get('/search', async (req, res, next) => { //搜索接口
 })
 
 
-// router.get('/turn', async ())
+router.get('/turn', async (req, res, next) => { //获取小程序展示的开关
+    const result = await Turn.getTurn()
+    res.send({switch: result})
+})
+
+router.get('/change', async (req, res, next) => {
+    const result = await Turn.ChangeTurn()
+    if(result) {
+        res.send("更改成功")
+    }
+})
 
 
 
