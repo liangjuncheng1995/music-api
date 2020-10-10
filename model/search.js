@@ -21,6 +21,12 @@ class Search {
         }
         return ret
     }
+
+    static async gethotkey(params) {
+        const url = util.format(config.music.gethotkey.url)
+        const result = await axios.get(url, {params})
+        return result.data
+    }
 }
 
 module.exports = {

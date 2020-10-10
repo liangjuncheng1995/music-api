@@ -10,8 +10,8 @@ module.exports = {
         },
         getSongList: { //获取推荐歌单的歌曲列表
             url: "https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg",
-            referer:'https://c.y.qq.com/',
-            host:'c.y.qq.com'
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
         },
         getPlayUrl: {//获取播放的链接
             url: "https://u.y.qq.com/cgi-bin/musicu.fcg",
@@ -28,11 +28,27 @@ module.exports = {
             referer: 'https://c.y.qq.com/',
             host: 'c.y.qq.com',
             origin: 'https://y.qq.com',
+        },
+        gethotkey: {//获取热门搜索
+            url: "https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg"
+        },
+        getSingerList: {//获取歌手列表
+            url: "https://c.y.qq.com/v8/fcg-bin/v8.fcg",
+        },
+        getSingerDetail: { //获取歌手详情数据
+            url: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg"
+        },
+        getRankList: { //获取排行列表的数据
+            url: "https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg"
+        },
+        getRankDetail: { //获取排行详情的数据
+            url: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg"
         }
     },
     database: {
         dbName: 'music',
-        host: 'localhost',
+        // host: 'localhost',
+        host: '134.175.129.92',
         password: '855420',
         port: 3306,
         user: 'root',
