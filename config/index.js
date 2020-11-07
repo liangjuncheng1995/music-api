@@ -48,8 +48,7 @@ module.exports = {
     database: {
         dbName: 'music',
         host: 'localhost',
-        // host: '134.175.129.92',
-        password: '855420',
+        password: '数据库密码',
         port: 3306,
         user: 'root',
     }
