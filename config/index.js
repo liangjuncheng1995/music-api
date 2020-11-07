@@ -47,8 +47,8 @@ module.exports = {
     },
     database: {
         dbName: 'music',
-        // host: 'localhost',
-        host: '134.175.129.92',
+        host: 'localhost',
+        // host: '134.175.129.92',
         password: '855420',
         port: 3306,
         user: 'root',
